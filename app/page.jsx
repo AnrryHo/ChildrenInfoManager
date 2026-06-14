@@ -4,6 +4,15 @@ import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 const STORAGE_KEY = "xiaoya-children-v1";
+const codeUpdatedAt = new Intl.DateTimeFormat("zh-CN", {
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+  hour: "2-digit",
+  minute: "2-digit",
+  hour12: false,
+  timeZone: "Asia/Shanghai",
+}).format(new Date(process.env.NEXT_PUBLIC_CODE_UPDATED_AT));
 
 const defaultChildren = [
   {
@@ -253,6 +262,10 @@ export default function Home() {
         <div className="side-note">
           <strong>认真记录每一步</strong>
           <p>孩子的成长很快，把重要的信息和珍贵的小事都留在这里。</p>
+        </div>
+        <div className="code-updated" title="根据项目文件的最近修改时间生成">
+          <span className="update-dot" aria-hidden="true" />
+          <span>代码更新于 {codeUpdatedAt}</span>
         </div>
       </aside>
 

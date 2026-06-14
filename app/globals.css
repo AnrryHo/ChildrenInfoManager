@@ -93,7 +93,7 @@
     .side-note {
       position: absolute;
       right: 24px;
-      bottom: 28px;
+      bottom: 76px;
       left: 24px;
       padding: 18px;
       border-radius: 18px;
@@ -102,6 +102,28 @@
 
     .side-note strong { display: block; margin-bottom: 7px; font-size: 14px; }
     .side-note p { margin: 0; color: #8a7564; font-size: 12px; line-height: 1.7; }
+
+    .code-updated {
+      position: absolute;
+      right: 24px;
+      bottom: 28px;
+      left: 24px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--muted);
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    .update-dot {
+      width: 7px;
+      height: 7px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 3px var(--green-soft);
+    }
 
     main {
       width: min(1280px, 100%);
@@ -455,9 +477,23 @@
 
     @media (max-width: 760px) {
       .app { display: block; }
-      .sidebar { position: static; width: 100%; height: auto; padding: 18px 20px; }
+      .sidebar {
+        position: static;
+        display: flex;
+        width: 100%;
+        height: auto;
+        padding: 18px 20px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
       .brand { margin: 0; }
       .nav, .side-note { display: none; }
+      .code-updated {
+        position: static;
+        flex-shrink: 0;
+        font-size: 10px;
+      }
       main { padding: 26px 18px 40px; }
       .topbar { align-items: flex-start; }
       .topbar .primary-btn span:last-child { display: none; }
@@ -470,6 +506,7 @@
     }
 
     @media (max-width: 480px) {
+      .code-updated span:last-child { max-width: 112px; white-space: normal; }
       .stats { grid-template-columns: 1fr 1fr; }
       .stat-value { font-size: 24px; }
       .filters { flex-direction: column; }
