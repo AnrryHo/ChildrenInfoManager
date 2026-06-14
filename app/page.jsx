@@ -16,7 +16,7 @@ const defaultChildren = [
     guardian: "林女士",
     phone: "138 0000 1286",
     note: "喜欢画画和自然观察",
-    image: "/assets/note-nature.jpg",
+    image: "/assets/note-nature.png",
   },
   {
     id: "2",
@@ -28,7 +28,7 @@ const defaultChildren = [
     guardian: "陈先生",
     phone: "139 0000 5632",
     note: "热爱足球和科学实验",
-    image: "/assets/note-football-science.jpg",
+    image: "/assets/note-football-science.png",
   },
   {
     id: "3",
@@ -40,7 +40,7 @@ const defaultChildren = [
     guardian: "周女士",
     phone: "136 0000 9018",
     note: "对芒果轻微过敏",
-    image: "/assets/note-mango-allergy.jpg",
+    image: "/assets/note-mango-allergy.png",
   },
 ];
 
@@ -57,10 +57,10 @@ const emptyForm = {
 };
 
 const noteImages = {
-  nature: "/assets/note-nature.jpg",
-  science: "/assets/note-football-science.jpg",
-  health: "/assets/note-mango-allergy-marked.jpg",
-  growth: "/assets/note-healthy-growth.jpg",
+  nature: "/assets/note-nature.png",
+  science: "/assets/note-football-science.png",
+  health: "/assets/note-mango-allergy-marked.png",
+  growth: "/assets/note-healthy-growth.png",
 };
 
 const avatarColors = [
@@ -72,7 +72,8 @@ const avatarColors = [
 
 function normalizeImagePath(path) {
   if (!path) return "";
-  return path.startsWith("/") ? path : `/${path}`;
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  return normalized.replace(/\.jpg$/i, ".png");
 }
 
 function getNoteImage(item) {
